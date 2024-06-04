@@ -1,4 +1,4 @@
-### Learning Rust programming languege
+### Learning Rust programming language
 ## author: darkmanltu
 # Goal: learn Rust by doing simple programs to get familiar with Rust syntax, quirks, and abilities, learn how to use git.
 
