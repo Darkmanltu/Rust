@@ -15,4 +15,4 @@ fn main(){
 }
 
 
-Very elementry syntax.
+Very elementry syntax. just like in C or C++ main is the function that everyprogram runs. not exactly sure how but the ! is a Rust macro that runs instead of a normal function (Not very sure how it works yet!).The indentation is 4 spaces (The Rust Style).
