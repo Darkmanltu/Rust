@@ -7,7 +7,7 @@ We can run our project by simply typing *"cargo run"*
 
 For now I will leave the cargo in the second step folder and write what I'm doing each time in the following folders with snippets of code that are written in this cargo project.
 
-
+Edit(I looked into the next things that we are going to build and decided AGAINST Doing it all on 1 project, for clarity and if by pure chance someone else is going to want to follow this tutorial to learn this and wants to see how (NOT) to program Rust  )
 
 # Small things I've noticed
 The main thing is the whole process is quite easy to follow, but now it seems that i to learn how this whole build process works and how to compile my stuff. I'm a 1st year student in Vilnius University Software engineer (Programų Sistemos is the name for my major) and had a class with Java, so it seems to me that this is a familar conscept of building a project. Theese are my current thoughts as of Doing this Step.
