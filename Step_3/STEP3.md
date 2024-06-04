@@ -18,9 +18,32 @@ So to start off We create a new cargo -> "cargo new variables" in the folder Ste
     // you cant add mut to a const variable (for obv reasons)
 }
 
+
 the comments are my own that I added for clarity. The tutorial pointed out the first error that can happen if we try to change the value for x (immutable) and get an error.
 
 We can also shaddow variables with another let. Rust allows to shaddow and consider the variable to be the following declared not the former (Except in local variables of course)
 
+I've decided not to comment on some of the less interesting things about variables, but what strikes me as important to know is loops, for/while loops.
 
+the operator "loop" is interesing becouse it is just a infinite cycle and you will be required to put in a break (kinda like while(1)/ while(const)). In rust ctrl + c lets you quit the program in the midst of a loop, to make a better way to debug (Helpful asf).
+
+the "While" loop is very basic: While cond. is true loop will go on. Same as most langueges
+
+the "for" loop is also intersting (similar in syntax to python in my opinion). We use for not like in c or java, but more like in other proggraming languages like python:
+    The for loop will look somehting like this: 
+        for n in Number(an array perhaps){
+            // do smth
+        }
+        this iterates over every element in the array. Very  out-of-bound exception proof.
+    
+
+    Next is just a normal for in range
+        for x in range(1..9){       // NOTE: to have an inclusive range use ..=
+            //do smth       
+        }
+
+
+That mostly concludes Step3.                        
+
+Writers Note: Very tired so might have a lot of grammar mistakes :P
 
