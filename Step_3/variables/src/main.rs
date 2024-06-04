@@ -23,14 +23,54 @@ fn main() {
 
 
     let spaces = "    ";       //string
-    spaces = spaces.len();     //integer shaddowing the string var by the same name with an integer
+    let spaces = spaces.len();     //integer shaddowing the string var by the same name with an integer
 
     // this will not work because spaces is now an integer
     /*
     let mut spaces = "    ";
     spcaes = spaces.len();
     you will get an error
-
      */
 
+
+    /*
+    datatypes   signed unsigned         flaoing point
+    8bit            i8     u8              
+    16bit           i16    u16              
+    32bit           i32    u32              f32
+    64bit           i64    u64              f64
+    128bit          i128   u128
+    arch            isize  usize
+    
+    */
+
+
+    let x: f32 = 2.0;
+    let mut y: f32= 1.1;
+    println!("x is : {x} and y is : {y}");
+    let y:f32 = y + x;
+    println!("The float sum is : {y}");
+
+
+    // boolean
+    let t = true;
+    let f = false;
+
+    // char
+
+    let c = 'z';
+    let z: char  = 'ℤ';    // explisit unicode char
+    let heart_eyed_cat = '😻';
+
+    //compound types
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    
+    //decomposing a tuple
+    let (x, y, z) = tup;
+
+
+
 }
+
+
