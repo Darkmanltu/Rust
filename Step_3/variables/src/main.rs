@@ -3,10 +3,38 @@ use std::io;
 
 include!("heh.rs");
 
+
+// example of a struct in rust with data types
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+impl User {
+    fn change_name(&mut self, new_name: String) {
+        self.username = new_name;
+    }
+}
 fn main() {
     // Rest of your code...
 
+    let mut user1 = User {
+       
+        username: String::from("dingus"),
+        email: String::from("dingus@hotmail.com"),
+        sign_in_count: 69,
+        active: false,
 
+    };
+    user1.change_name(String::from("dingus2"));
+
+
+    println!("{0}", user1.username);
+    //we can also use field Init shorthand
+    let user2 = build_user(String::from("dingus2"), String::from("dingus2@hotmail.com"));
+    
     let mut x = 5;          // mut is short for mutable mutability lets the variable change in the future after declaration,
     // x = 5;                // This will not work because x is immutable by default
     println!("variable x is : {x}!");
@@ -187,7 +215,120 @@ fn main() {
     for number in (1..=4).rev() {           // Inclusive range is with 1..=4 and exclusive is with 1..4
         println!("{number}!");
     }
+
+
+
+    // function with i32 inputs sum 
+    let x = sum(9,10);
+    println!("Sum of 9+10? {x} (not 21??!?!?!)\n");
+
+
+
+    {
+        //scope of the field (like local block in c/java )
+        let s = "zaza";
+
+
+        // do shit with s
+
+        
+    } // scope of s ends and with that s can no longer be accessed after this line
+
+
+
+    //second type of String. To make use the string literal
+    let mut x = String::from("Hello");
+    // we can add to the String 
+
+    x.push_str(", World"); // append a literal to a string
+
+    println!("{x}");
+
+
+    //info about Garbage collector:
+    /* 
+    Garbage collector automaticly frees up space after variable goes out of scope like in our S variables case
+    With every one "allocate" we need to use one "free".
+    
+     */
+
+    // assinging value of string to another value is just coppying ptr
+    let s1 = String::from("MUTABLE");
+    //let s2 = s1;
+    //println!("{s1} & {s2}"); throws an errror becous s1 is now invallidated
+    //s1.push_str(", Change ");
+    // println!("{s2}");
+    //Rust never makes an automatic deep copy, to save up memory and runtime performance
+    //To make a deep copy need to use clone method
+   let  s2 = s1.clone();        //deep copy (Clone)
+    println!("{s1}: s1, {s2}:s2");
+
+
+    //types that immplemented copy:
+    /*
+    all integer types like u32
+    Boolena type (true, false)
+    floating type, f64
+    char
+    Tuples (if they contain types that already have immplemented copy aswell)
+    like (i32, i32) has copy but
+    (i32, String ) does not, becouse String does not have a copy
+     */
+
+    // a bit of how ownership works
+    let s = String::from("hello");  // s comes into scope
+
+    takes_ownership(s);             // s's value moves into the function...
+                                    // ... and so is no longer valid here
+
+    let x = 5;                      // x comes into scope
+
+    makes_copy(x);                  // x would move into the function,
+                                    // but i32 is Copy, so it's okay to still
+                                    // use x afterward
+
+
+
+    let mut z = String::from("Mwuhaha");
+    change(&mut z);
+
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    let r3 = &mut s; // BIG PROBLEM
+
+    
+    //println!("{}, {}, and {}", r1, r2, r3);  // becouse we cannot have multiple refrences with mut
+}// Here, x goes out of scope, then s. But because s's value was moved, nothing
+  // special happens.
+
+
+
+fn build_user(email: String, username: String) -> User {
+    User {
+        email,
+        username,
+        active: true,
+        sign_in_count: 1,
+    }
 }
+
+fn change(some_string: &mut String) {
+
+    some_string.push_str(", hehe");
+}
+
+fn takes_ownership(some_string: String) { // some_string comes into scope
+    println!("{some_string}");
+} // Here, some_string goes out of scope and `drop` is called. The backing
+  // memory is freed.
+
+fn makes_copy(some_integer: i32) { // some_integer comes into scope
+    println!("{some_integer}");
+} // Here, some_integer goes out of scope. Nothing special happens.
+
+
 //defining functions same as in C/C++, variables are immutable by default
 fn function_name() {
     println!("This is a function");
@@ -200,3 +341,12 @@ fn function_name_with_args(x: i32) {
 fn five() -> i32 {
     5
 }
+
+
+fn sum(a: i32, b: i32) -> i32 {
+    a + b
+
+}
+
+
+
